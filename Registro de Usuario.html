@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio de Sesión - Gastronomía Universal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #28a745;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Gastronomía Universal</h2>
+    <form id="loginForm">
+      <input type="text" id="cedula" placeholder="Cédula" required>
+      <input type="email" id="correo" placeholder="Correo electrónico" required>
+      <input type="text" id="nombre" placeholder="Nombre completo" required>
+      <button type="submit">Iniciar Sesión</button>
+      <div class="message" id="mensaje"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const cedula = document.getElementById("cedula").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      const nombre = document.getElementById("nombre").value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (cedula && correo && nombre) {
+        mensaje.style.color = "green";
+        mensaje.textContent = `Bienvenido, ${nombre}!`;
+        // Aquí puedes conectar con un backend o redireccionar
+      } else {
+        mensaje.style.color = "red";
+        mensaje.textContent = "Por favor, completa todos los campos.";
+      }
+    });
+  </script>
+
+</body>
+</html>
