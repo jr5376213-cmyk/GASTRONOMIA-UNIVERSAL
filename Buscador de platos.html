@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscador de Platos Típicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 40px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🍽️ Buscador de Platos Típicos</h1>
+    <p>Escribe el nombre de un plato y descubre de qué país es:</p>
+
+    <input type="text" id="plato" placeholder="Ej: Tacos">
+    <button onclick="buscarPlato()">Buscar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        const platos = {
+            "tacos": "México",
+            "paella": "España",
+            "sushi": "Japón",
+            "arepa": "Venezuela / Colombia",
+            "feijoada": "Brasil",
+            "ceviche": "Perú",
+            "poutine": "Canadá",
+            "pizza": "Italia",
+            "kimchi": "Corea del Sur",
+            "hamburguesa": "Estados Unidos",
+            "moussaka": "Grecia",
+            "goulash": "Hungría"
+        };
+
+        function buscarPlato() {
+            const input = document.getElementById("plato").value.trim().toLowerCase();
+            const resultado = document.getElementById("resultado");
+
+            if (input in platos) {
+                resultado.innerHTML = `🍽️ <strong>${input.charAt(0).toUpperCase() + input.slice(1)}</strong> es un plato típico de <strong>${platos[input]}</strong>.`;
+            } else {
+                resultado.innerHTML = `⚠️ No se encontró información sobre el plato "<strong>${input}</strong>".`;
+            }
+        }
+    </script>
+
+</body>
+</html>
+
