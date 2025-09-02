@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gastronomía Universal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1950&q=80'); /* Fondo planeta Tierra */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .bandera-colombia {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      width: 50px;
+      height: 30px;
+      border: 2px solid white;
+      border-radius: 5px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.7);
+      z-index: 10;
+    }
+
+    .contenido {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      margin: 50px auto 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+      text-align: center;
+      max-width: 900px;
+      position: relative;
+      z-index: 5;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin: 0;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #2ecc71;
+    }
+
+    p.intro {
+      margin-top: 15px;
+      font-size: 22px;
+      font-style: italic;
+      color: #b8f7c3;
+      text-shadow: 0 0 5px #000;
+    }
+
+    .btn-inicio {
+      margin: 30px 0 0 0;
+      padding: 14px 35px;
+      font-size: 20px;
+      color: white;
+      background: linear-gradient(45deg, #2ecc71, #27ae60);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.5s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 8px rgba(46, 204, 113, 0.6);
+    }
+
+    .btn-inicio:hover {
+      background: linear-gradient(45deg, #27ae60, #2ecc71);
+      box-shadow: 0 6px 15px rgba(39, 174, 96, 0.8);
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 45px;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-12px) rotate(3deg);
+      }
+    }
+
+    .bandera {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      overflow: hidden;
+      width: 180px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: float 5s ease-in-out infinite;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .bandera:hover {
+      transform: scale(1.12);
+      box-shadow: 0 0 20px #2ecc71;
+      animation-play-state: paused;
+    }
+
+    .bandera img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 10px;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.5));
+      transition: filter 0.3s;
+    }
+
+    .bandera:hover img {
+      filter: drop-shadow(0 0 6px #2ecc71);
+    }
+
+    .bandera[data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: #2ecc71;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 0 10px #2ecc71;
+      z-index: 20;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #ccc;
+      margin-top: 50px;
+      position: relative;
+      z-index: 5;
+    }
+
+    @media (max-width: 600px) {
+      .galeria {
+        gap: 20px;
+      }
+      .bandera {
+        width: 140px;
+        height: 90px;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      p.intro {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <img class="bandera-colombia" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg" alt="Bandera de Colombia" />
+
+  <div class="contenido">
+    <h1>Bienvenidos a Gastronomía Universal</h1>
+    <p class="intro">Descubre la diversidad cultural y gastronómica reflejada en las banderas del mundo.</p>
+    <a href="inicio.html" class="btn-inicio">Ir a Inicio / Registro</a>
+
+    <div class="galeria">
+      <!-- Banderas -->
+      <div class="bandera" data-tooltip="Colombia"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg" alt="Colombia" /></div>
+      <div class="bandera" data-tooltip="Estados Unidos"><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="EE.UU." /></div>
+      <div class="bandera" data-tooltip="España"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="España" /></div>
+      <div class="bandera" data-tooltip="Francia"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="Francia" /></div>
+      <div class="bandera" data-tooltip="Italia"><img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="Italia" /></div>
+      <div class="bandera" data-tooltip="Alemania"><img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="Alemania" /></div>
+      <div class="bandera" data-tooltip="Rusia"><img src="https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg" alt="Rusia" /></div>
+      <div class="bandera" data-tooltip="India"><img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India" /></div>
+      <div class="bandera" data-tooltip="México"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" alt="México" /></div>
+      <div class="bandera" data-tooltip="Japón"><img src="https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" alt="Japón" /></div>
+      <div class="bandera" data-tooltip="Brasil"><img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" alt="Brasil" /></div>
+      <div class="bandera" data-tooltip="China"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg" alt="China" /></div>
+      <div class="bandera" data-tooltip="Argentina"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg" alt="Argentina" /></div>
+      <div class="bandera" data-tooltip="Egipto"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg" alt="Egipto" /></div>
+      <div class="bandera" data-tooltip="Canadá"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" alt="Canadá" /></div>
+      <div class="bandera" data-tooltip="Australia"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Flag_of_Australia.svg" alt="Australia" /></div>
+      <div class="bandera" data-tooltip="Corea del Sur"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" alt="Corea del Sur" /></div>
+      <div class="bandera" data-tooltip="Sudáfrica"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg" alt="Sudáfrica" /></div>
+      <div class="bandera" data-tooltip="Perú"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg" alt="Perú" /></div>
+      <div class="bandera" data-tooltip="Grecia"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg" alt="Grecia" /></div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Gastronomía Universal — Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
